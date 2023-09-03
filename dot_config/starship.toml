@@ -1,0 +1,43 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Hack for right formatted prompts
+format = "$directory$status$git_status$rust$character"
+right_format = "$memory_usage"
+
+[directory]
+truncation_symbol = "../"
+truncate_to_repo = false
+
+[directory.substitutions]
+'C:/code' = ''
+
+[time]
+disabled = false
+format = '📆 [$time]($style) '
+time_format = "%x @ %T"
+
+[fill]
+symbol = " "
+
+[git_status]
+untracked = '🤷($count)'
+
+[git_commit]
+commit_hash_length = 4
+
+[status]
+disabled = false
+format = "[$symbol$status]($style)"
+symbol = "✕ "
+
+[memory_usage]
+format = "m:[${ram}]($style)"
+threshold = -1
+symbol = "m"
+disabled = false
+
+[azure]
+disabled = false
