@@ -1,0 +1,13 @@
+{{- $name := "Jason Tucker" -}}
+
+{{- writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
+
+{{ if eq .chezmoi.os "windows" -}}
+[interpreters.ps1]
+command = "pwsh"
+args = ["-NoLogo"]
+
+[cd]
+command = "pwsh"
+args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
+{{- end }}
