@@ -11,3 +11,12 @@ args = ["-NoLogo"]
 command = "pwsh"
 args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
 {{- end }}
+
+[edit]
+command = "code"
+
+[git]
+autoCommit = true
+
+[data]
+editor = "code"
