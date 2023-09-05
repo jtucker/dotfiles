@@ -3,13 +3,19 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
-# Hack for right formatted prompts
-format = "$directory$status$git_status$rust$character"
-right_format = "$memory_usage"
+format = "$os$shell$username $directory$git_branch$git_status$character"
+right_format = "$status | $time | $localip"
+
+[character]
+success_symbol = "[❯](bold blue)[❯](bold green)"
+error_symbol = "[❯](bold #ff4a03)[❯](bold red)"
 
 [directory]
-truncation_symbol = "../"
-truncate_to_repo = false
+truncation_length = 4
+truncate_to_repo = true # truncates directory to root folder if in github repo
+truncation_symbol = "repo:"
+#style = "bold italic #87A752"
+style = "bold italic fg:146"
 
 [directory.substitutions]
 'C:/code' = ''
@@ -18,6 +24,13 @@ truncate_to_repo = false
 disabled = false
 format = '📆 [$time]($style) '
 time_format = "%x @ %T"
+
+[username]
+style_user = "bold bright-cyan"
+style_root = "bold red"
+format = "[$user]($style)"
+disabled = false
+show_always = true
 
 [fill]
 symbol = " "
@@ -33,6 +46,12 @@ disabled = false
 format = "[$symbol$status]($style)"
 symbol = "✕ "
 
+[shell]
+format = "\\[[$indicator]($style)\\] "
+powershell_indicator = "pwsh"
+style = "bold blue"
+disabled = false
+
 [memory_usage]
 format = "m:[${ram}]($style)"
 threshold = -1
@@ -41,3 +60,26 @@ disabled = false
 
 [azure]
 disabled = false
+
+[git_branch]
+format = "$symbol[$branch]($style) "
+symbol             = " "           # A format string representing the symbol of git branch.
+truncation_length  = 50             # Truncates a git branch to N graphemes.
+truncation_symbol  = "…"            # The symbol used to indicate a branch name was truncated. You can use "" for no symbol.
+style = "fg:031" # dark blue
+only_attached      = true
+
+[git_status]
+format = "([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style))"
+style = "bold cyan"
+up_to_date = ""
+conflicted = "=$count "
+ahead = "⇡$count "
+behind = "⇣$count "
+diverged = "⇕$count "
+untracked = "?$count "
+stashed = "$$count "
+modified = "!$count "
+staged = "+$count "
+renamed = "»$count "
+deleted = "✘$count "
