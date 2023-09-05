@@ -35,9 +35,6 @@ show_always = true
 [fill]
 symbol = " "
 
-[git_status]
-untracked = '🤷($count)'
-
 [git_commit]
 commit_hash_length = 4
 
