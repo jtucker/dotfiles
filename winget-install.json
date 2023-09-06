@@ -1,0 +1,152 @@
+{
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2023-08-29T10:43:55.126-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "AgileBits.1Password",
+					"Version" : "8.10.13"
+				},
+				{
+					"PackageIdentifier" : "7zip.7zip",
+					"Version" : "23.01"
+				},
+				{
+					"PackageIdentifier" : "AgileBits.1Password.CLI",
+					"Version" : "2.19.0"
+				},
+				{
+					"PackageIdentifier" : "Brave.Brave",
+					"Version" : "113.1.51.114"
+				},
+				{
+					"PackageIdentifier" : "Bitvise.SSH.Client",
+					"Version" : "9.27"
+				},
+				{
+					"PackageIdentifier" : "Canonical.Ubuntu.2204",
+					"Version" : "2204.2.33.0"
+				},
+				{
+					"PackageIdentifier" : "Docker.DockerDesktop",
+					"Version" : "4.22.0"
+				},
+				{
+					"PackageIdentifier" : "Mozilla.Firefox.DeveloperEdition",
+					"Version" : "117.0"
+				},
+				{
+					"PackageIdentifier" : "Fork.Fork",
+					"Version" : "1.88.2"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal",
+					"Version" : "1.17.11461.0"
+				},
+				{
+					"PackageIdentifier" : "Mozilla.Thunderbird.Beta",
+					"Version" : "> 117.0b4"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Office",
+					"Version" : "16.0.16731.20170"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OneDrive",
+					"Version" : "23.176.0822.0001"
+				},
+				{
+					"PackageIdentifier" : "Spicetify.Spicetify",
+					"Version" : "2.22.2"
+				},
+				{
+					"PackageIdentifier" : "Spotify.Spotify",
+					"Version" : "1.2.18.999.g9b38fc27"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Teams",
+					"Version" : "1.6.00.19571"
+				},
+				{
+					"PackageIdentifier" : "JetBrains.Toolbox",
+					"Version" : "2.0.2.16660"
+				},
+				{
+					"PackageIdentifier" : "ajeetdsouza.zoxide",
+					"Version" : "0.9.2"
+				},
+				{
+					"PackageIdentifier" : "SlackTechnologies.Slack",
+					"Version" : "4.33.90"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode.Insiders",
+					"Version" : "1.80.0"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli",
+					"Version" : "2.32.1"
+				},
+				{
+					"PackageIdentifier" : "PrivateInternetAccess.PrivateInternetAccess",
+					"Version" : "3.3.1+06924"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Azd",
+					"Version" : "1.2.100"
+				},
+				{
+					"PackageIdentifier" : "Starship.Starship",
+					"Version" : "1.16.0"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Azure.StorageExplorer",
+					"Version" : "1.31.1"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode",
+					"Version" : "1.81.1"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Bicep",
+					"Version" : "0.20.4.51522"
+				},
+				{
+					"PackageIdentifier" : "Dapr.CLI",
+					"Version" : "1.11.0"
+				},
+				{
+					"PackageIdentifier" : "SomePythonThings.WingetUIStore",
+					"Version" : "2.0.3"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell",
+					"Version" : "7.3.6.0"
+				},
+				{
+					"PackageIdentifier" : "gerardog.gsudo",
+					"Version" : "2.3.0"
+				},
+				{
+					"PackageIdentifier" : "Google.NearbyShare",
+					"Version" : "1.0.993.0"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AzureCLI",
+					"Version" : "2.51.0"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion" : "1.5.2201"
+}
