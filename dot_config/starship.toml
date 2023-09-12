@@ -17,8 +17,8 @@ truncation_symbol = "repo:"
 #style = "bold italic #87A752"
 style = "bold italic fg:146"
 
-[directory.substitutions]
-'C:/code' = ''
+[os]
+disabled = false
 
 [time]
 disabled = false
