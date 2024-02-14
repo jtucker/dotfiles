@@ -4,11 +4,6 @@
         "portablePackageUserRoot": "c:\\tools",
         "preferences": {
             "scope": "user"
-        },
-        "requirements": {
-            "architectures": [
-                "x64", "neutral", "arm64"
-            ]
         }
     },
     "visual": {

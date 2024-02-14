@@ -1,142 +1,148 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2023-08-29T10:43:55.126-00:00",
+	"CreationDate" : "2024-02-13T22:25:04.149-00:00",
 	"Sources" : 
 	[
 		{
 			"Packages" : 
 			[
 				{
-					"PackageIdentifier" : "AgileBits.1Password",
-					"Version" : "8.10.13"
+					"PackageIdentifier" : "HeroicGamesLauncher.HeroicGamesLauncher"
 				},
 				{
-					"PackageIdentifier" : "7zip.7zip",
-					"Version" : "23.01"
+					"PackageIdentifier" : "AgileBits.1Password.CLI"
 				},
 				{
-					"PackageIdentifier" : "AgileBits.1Password.CLI",
-					"Version" : "2.19.0"
+					"PackageIdentifier" : "Bitvise.SSH.Client"
 				},
 				{
-					"PackageIdentifier" : "Brave.Brave",
-					"Version" : "113.1.51.114"
+					"PackageIdentifier" : "Canonical.Ubuntu.2204"
 				},
 				{
-					"PackageIdentifier" : "Bitvise.SSH.Client",
-					"Version" : "9.27"
+					"PackageIdentifier" : "Docker.DockerDesktop"
 				},
 				{
-					"PackageIdentifier" : "Canonical.Ubuntu.2204",
-					"Version" : "2204.2.33.0"
+					"PackageIdentifier" : "Mozilla.Firefox.DeveloperEdition"
 				},
 				{
-					"PackageIdentifier" : "Docker.DockerDesktop",
-					"Version" : "4.22.0"
+					"PackageIdentifier" : "Fork.Fork"
 				},
 				{
-					"PackageIdentifier" : "Mozilla.Firefox.DeveloperEdition",
-					"Version" : "117.0"
+					"PackageIdentifier" : "Git.Git"
 				},
 				{
-					"PackageIdentifier" : "Fork.Fork",
-					"Version" : "1.88.2"
+					"PackageIdentifier" : "Microsoft.Teams"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal",
-					"Version" : "1.17.11461.0"
+					"PackageIdentifier" : "Microsoft.Edge"
 				},
 				{
-					"PackageIdentifier" : "Mozilla.Thunderbird.Beta",
-					"Version" : "> 117.0b4"
+					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Office",
-					"Version" : "16.0.16731.20170"
+					"PackageIdentifier" : "Microsoft.AppInstaller"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.OneDrive",
-					"Version" : "23.176.0822.0001"
+					"PackageIdentifier" : "Microsoft.UI.Xaml.2.7"
 				},
 				{
-					"PackageIdentifier" : "Spicetify.Spicetify",
-					"Version" : "2.22.2"
+					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
 				},
 				{
-					"PackageIdentifier" : "Spotify.Spotify",
-					"Version" : "1.2.18.999.g9b38fc27"
+					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Teams",
-					"Version" : "1.6.00.19571"
+					"PackageIdentifier" : "Microsoft.DevHome"
 				},
 				{
-					"PackageIdentifier" : "JetBrains.Toolbox",
-					"Version" : "2.0.2.16660"
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				},
 				{
-					"PackageIdentifier" : "ajeetdsouza.zoxide",
-					"Version" : "0.9.2"
+					"PackageIdentifier" : "Microsoft.Office"
 				},
 				{
-					"PackageIdentifier" : "SlackTechnologies.Slack",
-					"Version" : "4.33.90"
+					"PackageIdentifier" : "Microsoft.OneDrive"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode.Insiders",
-					"Version" : "1.80.0"
+					"PackageIdentifier" : "Spicetify.Spicetify"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli",
-					"Version" : "2.32.1"
+					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
-					"PackageIdentifier" : "PrivateInternetAccess.PrivateInternetAccess",
-					"Version" : "3.3.1+06924"
+					"PackageIdentifier" : "JetBrains.Toolbox"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Azd",
-					"Version" : "1.2.100"
+					"PackageIdentifier" : "ajeetdsouza.zoxide"
 				},
 				{
-					"PackageIdentifier" : "Starship.Starship",
-					"Version" : "1.16.0"
+					"PackageIdentifier" : "twpayne.chezmoi"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Azure.StorageExplorer",
-					"Version" : "1.31.1"
+					"PackageIdentifier" : "AgileBits.1Password"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode",
-					"Version" : "1.81.1"
+					"PackageIdentifier" : "7zip.7zip"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Bicep",
-					"Version" : "0.20.4.51522"
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "Dapr.CLI",
-					"Version" : "1.11.0"
+					"PackageIdentifier" : "PrivateInternetAccess.PrivateInternetAccess"
 				},
 				{
-					"PackageIdentifier" : "SomePythonThings.WingetUIStore",
-					"Version" : "2.0.3"
+					"PackageIdentifier" : "Microsoft.Azd"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell",
-					"Version" : "7.3.6.0"
+					"PackageIdentifier" : "Microsoft.Azure.StorageExplorer"
 				},
 				{
-					"PackageIdentifier" : "gerardog.gsudo",
-					"Version" : "2.3.0"
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
-					"PackageIdentifier" : "Google.NearbyShare",
-					"Version" : "1.0.993.0"
+					"PackageIdentifier" : "Starship.Starship"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.AzureCLI",
-					"Version" : "2.51.0"
+					"PackageIdentifier" : "Microsoft.Bicep"
+				},
+				{
+					"PackageIdentifier" : "SomePythonThings.WingetUIStore"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AzureCLI"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier" : "Nvidia.GeForceExperience"
+				},
+				{
+					"PackageIdentifier" : "Nvidia.PhysX"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "EpicGames.EpicGamesLauncher"
+				},
+				{
+					"PackageIdentifier" : "SlackTechnologies.Slack"
+				},
+				{
+					"PackageIdentifier" : "Dapr.CLI"
+				},
+				{
+					"PackageIdentifier" : "Meld.Meld"
+				},
+				{
+					"PackageIdentifier" : "gerardog.gsudo"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				}
 			],
 			"SourceDetails" : 
@@ -148,5 +154,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.5.2201"
+	"WinGetVersion" : "1.6.3482"
 }
