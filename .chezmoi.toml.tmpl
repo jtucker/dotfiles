@@ -8,21 +8,31 @@
    args = ["-NoLogo"]
 
 [cd]
-command = "pwsh"
-args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
-{{- end }}
+   command = "pwsh"
+   args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
 
 [edit]
-command = "code"
+   command = "code"
+   args = [
+      "--wait"
+   ]
 
 [merge]
-command = "meld"
+    command = "pwsh"
+    args = ["-Command", "cp {{ `{{ .Target }}` }} {{ `{{ .Target }}` }}.base && code --wait --new-window --merge {{ `{{ .Destination }}` }} {{ `{{ .Target  }}` }} {{ `{{ .Target }}` }}.base {{ `{{ .Source }}` }}"]
 
 [diff]
-command = "meld"
+   command = "code"
+   args = [
+      "--wait",
+      "--diff",
+      "{{ `{{ .Destination }}` }}",
+      "{{ `{{ .Target }}` }}"
+   ]
+{{- end }}
 
 [git]
-autoCommit = true
+   autoCommit = true
 
 [data]
-editor = "code"
+   editor = "code"
