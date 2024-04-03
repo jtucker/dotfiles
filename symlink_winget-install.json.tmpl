@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.os "windows" }}
+{{   if (.chezmoi.username | lower | contains "jatucke") }}
+# work account
+{{ .chezmoi.sourceDir }}/winget/winget-work.json
+{{   end }}
+{{ end }}
