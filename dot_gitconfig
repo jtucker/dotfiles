@@ -1,8 +1,0 @@
-[core]
-	editor = \"C:\\Users\\jatucke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
-[user]
-	name = Jason Tucker
-	email = jatucke@microsoft.com
-[credential]
-	helper = 
-	helper = C:/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
