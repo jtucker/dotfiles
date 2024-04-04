@@ -43,3 +43,58 @@ function New-GitBareRepo {
 
     Pop-Location    
 }
+
+<#
+.SYNOPSIS
+Creates a new Git worktree for a specified branch.
+
+.DESCRIPTION
+The New-GitBranchWorktree function creates a new Git worktree for a given branch. It allows you to work on different branches simultaneously without switching between them.
+
+.PARAMETER Name
+Specifies the name of the new worktree. This should be a unique identifier for the worktree.
+
+.PARAMETER BranchExists
+Indicates whether the branch already exists. If this switch is provided, the function will create a new branch with the specified name. Otherwise, it will use an existing branch.
+
+.EXAMPLE
+New-GitBranchWorktree -Name "my-feature-branch"
+Creates a new worktree for the existing branch named "my-feature-branch".
+
+.EXAMPLE
+New-GitBranchWorktree -Name "my-new-branch" -BranchExists
+Creates a new worktree and a new branch named "my-new-branch".
+
+.NOTES
+- You must be in the root of a bare Git repository to create a worktree.
+- The function uses the 'git worktree add' command internally.
+#>
+function New-GitBranchWorktree {
+    param(
+        [Parameter(Mandatory)]
+        [string] 
+        $Name,
+
+        [switch]
+        $BranchExists
+    )
+
+    if (-not (Test-Path ".base")) {
+        Write-Error "You must be in the root of a bare git repository to create a worktree." `
+            -ErrorAction Stop
+    } 
+
+    $gitCommand = "git"
+    $arguments = "worktree", "add" 
+    if ($BranchExists)
+    {
+        $arguments += "-b"
+    }
+
+    $arguments += $Name, $Name
+
+    &$gitCommand $arguments
+}
+
+
+Export-ModuleMember -Function 'New-GitBareRepo', 'New-GitBranchWorktree'

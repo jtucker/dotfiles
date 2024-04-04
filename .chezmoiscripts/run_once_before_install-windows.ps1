@@ -19,7 +19,7 @@ if(!(Get-Command git -ErrorAction SilentlyContinue)) {
 }
 
 ## Check for sudo
-if(!(Get-Command sudo -ErrorAction SilentlyContinue)) {
+if(-not (Get-Command gsudo -ErrorAction SilentlyContinue)) {
     Write-Host "🖥️ Installing sudo"
     winget install --id gerardog.gsudo `
         --silent --accept-package-agreements --accept-source-agreements
@@ -33,15 +33,15 @@ gsudo {
     Write-Host "⭐ Admin level achieved.." -ForegroundColor DarkRed
     Set-ExecutionPolicy Unrestricted -ErrorAction Stop
 
-    Write-Host "🖥️ Installing software from winget" -ForegroundColor DarkRed
-    winget import -i "$(chezmoi source-path)/winget-install.json" --accept-source-agreements --accept-package-agreements --no-upgrade --disable-interactivity
+    # Write-Host "🖥️ Installing software from winget" -ForegroundColor DarkRed
+    # winget import -i "$(chezmoi source-path)/winget-install.json" --accept-source-agreements --accept-package-agreements --disable-interactivity
 
-    Write-Host "✪ Installing fonts" -ForegroundColor DarkRed
-    if(Test-Path ~/OneDrive) {
-        $fonts = (New-Object -ComObject Shell.Application).Namespace(0x14)
-        Get-ChildItem ~/OneDrive/Fonts/current-font/*.ttf | ForEach-Object { 
-            Write-Host "`tInstalling font: $($_.FullName)" -ForegroundColor DarkGray
-            $fonts.CopyHere($_.FullName) 
-        }
-    }
+    # Write-Host "✪ Installing fonts" -ForegroundColor DarkRed
+    # if(Test-Path ~/OneDrive) {
+    #     $fonts = (New-Object -ComObject Shell.Application).Namespace(0x14)
+    #     Get-ChildItem ~/OneDrive/Fonts/current-font/*.ttf | ForEach-Object { 
+    #         Write-Host "`tInstalling font: $($_.FullName)" -ForegroundColor DarkGray
+    #         $fonts.CopyHere($_.FullName) 
+    #     }
+    # }
 }
