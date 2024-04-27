@@ -1,0 +1,19 @@
+{
+  "prefs": {
+    "NotebookFontSize": "14.0",
+    "ReceivedReferralTheme": "\"Inactive\"",
+    "SystemTheme": "false",
+    "Theme": "\"CyberWave\"",
+    "HonorPS1": "false",
+    "WelcomeTipsFeaturesUsed": "[{\"Action\":\"CommandPalette\"},{\"Hint\":\"BlockAction\"},{\"Action\":\"ThemePicker\"},{\"Action\":\"AiCommandSearch\"},{\"Hint\":\"BlockSelect\"},{\"Hint\":\"CreateBlock\"},{\"Action\":\"CommandSearch\"}]",
+    "ExperimentId": "8aff4466-884f-4757-9645-e86548aa43a8",
+    "WorkflowsBoxOpen": "true",
+    "FontSize": "13.0",
+    "FontName": "\"DejaVu Sans Mono\"",
+    "HasAutoOpenedWelcomeFolder": "true",
+    "OverrideOpacity": "88",
+    "SavedPrompt": "{\"CustomChipSelection\":{\"chips\":[{\"chip\":\"RemoteLogin\",\"config\":{}},{\"chip\":\"WorkingDirectory\",\"config\":{}},{\"chip\":\"ShellGitBranch\",\"config\":{}},{\"chip\":\"GitDirtyFiles\",\"config\":{}},{\"chip\":\"KubernetesContext\",\"config\":{}}],\"same_line_prompt_enabled\":false,\"separator\":\"None\"}}",
+    "AutosuggestionAcceptedCount": "1",
+    "AIAssistantRequestLimitInfo": "{\"limit\":40,\"num_requests_used_since_refresh\":0,\"next_refresh_time\":\"2024-05-25T16:09:35.337508Z\"}"
+  }
+}
