@@ -1,0 +1,26 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+
+echo "Install homebrew"
+
+if command -v brew >/dev/null 2>&1; then
+  echo "Homebrew already installed, skipping."
+  exit 0
+fi
+
+echo "Install Homebrew..."
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# add path
+if [ -d /opt/homebrew/bin ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
+  echo "Adding brew to path"
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+echo "Homebrew Installed!"
+
+{{- end }}

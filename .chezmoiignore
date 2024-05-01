@@ -1,4 +1,12 @@
 README.md
 TODO.md
 
-winget-install.json
+{{ if ne .chezmoi.os "windows" }} # Ignore windows stuff on linux
+.chezmoiscripts/*.ps1
+AppData
+Documents
+{{ else }} # ignore linux stuff on windows
+.chezmoiscripts/*.sh
+.config/warp_terminal/*
+{{ end }}
+

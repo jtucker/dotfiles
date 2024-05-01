@@ -1,0 +1,13 @@
+packages:
+  linux:
+    brews:
+    - 'asdf'
+    - 'gitbutler'
+    - 'jq'
+    - 'starship'
+    - 'fzf'
+    - 'zoxide'
+    casks:
+    - 'git-credential-manager'
+    - '1password-cli'
+    - 'slack'
