@@ -1,8 +1,47 @@
-{{- $name := "Jason Tucker" -}}
+{{- $email := "" -}}
+{{- $work := false -}}
 
-{{- writeToStdout "💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n" -}}
+{{- if (hasKey . "email") -}}
+{{-   $email = .email -}}
+{{- else -}}
+{{-   $email = promptString "Email address for configs" -}}
+{{- end -}}
 
-{{ if eq .chezmoi.os "windows" -}}
+{{- if (hasKey . "work") -}}
+{{-   $email = .work -}}
+{{- else -}}
+{{-   $work = promptBool "Is this a work machine (Y/N)" -}}
+{{- end -}}
+
+
+{{- $machine := "desktop" }}
+{{- if eq .chezmoi.os "windows" }}
+{{-  $machine = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
+{{- end }}
+
+encryption = "age"
+mode = "file"
+progress = true
+
+{{- if eq .chezmoi.os "windows" }}
+[hooks.read-source-state.pre]
+  command = "powershell"
+  args = ["-NoLogo", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi; ./.install-windows-prereqs.ps1}"]
+
+# Hack to run powershell scripts before 
+# powershell core is installed
+[interpreters.ps5]
+   command = "powershell"
+   args = ["-NoLogo"]
+
+{{- end }}
+
+[data]
+email = {{ $email | quote }}
+work = {{ $work }}
+machine = {{ $machine | quote }}
+editor = "code"
+
 [interpreters.ps1]
    command = "pwsh"
    args = ["-NoLogo"]
@@ -22,6 +61,7 @@
     args = ["-Command", "cp {{ `{{ .Target }}` }} {{ `{{ .Target }}` }}.base && code --wait --new-window --merge {{ `{{ .Destination }}` }} {{ `{{ .Target  }}` }} {{ `{{ .Target }}` }}.base {{ `{{ .Source }}` }}"]
 
 [diff]
+   exclude = ["scripts"]
    command = "code"
    args = [
       "--wait",
@@ -29,10 +69,6 @@
       "{{ `{{ .Destination }}` }}",
       "{{ `{{ .Target }}` }}"
    ]
-{{- end }}
 
 [git]
    autoCommit = true
-
-[data]
-   editor = "code"

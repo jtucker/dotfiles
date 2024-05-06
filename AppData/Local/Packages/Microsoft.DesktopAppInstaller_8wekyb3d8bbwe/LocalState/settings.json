@@ -10,6 +10,6 @@
         "progressBar": "rainbow"
     },
     "source": {
-        "autoUpdateIntervalInMinutes": 0
+        "autoUpdateIntervalInMinutes": 360
     }
 }

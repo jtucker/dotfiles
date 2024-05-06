@@ -1,0 +1,17 @@
+{{- $release := joinPath .chezmoi.homeDir ".cache" "github-releases" "age-yubikey-plugin.json" | include | fromJson -}}
+{{- $jqQuery := printf ".assets[] | select(.name | test(\"age-plugin-yubikey-.*-%s.*$\"))" .chezmoi.os -}}
+{{- $asset := $release | jq $jqQuery | first -}}
+#    Version: {{ $release.tag_name }}
+#    Updated At: {{ $asset.updated_at }}
+
+if(-not (Get-Command age -ErrorAction SilentlyContinue)) {
+    Write-Host -ForegroundColor DarkRed "age is not installed."
+} else {
+    Write-Host -ForegroundColor Green "age is installed, installing yubikey"
+    $agePath = (Get-Command age).Path | Split-Path -Parent
+    Invoke-WebRequest {{ $asset.browser_download_url | quote }} -OutFile {{ $asset.name }}
+    Expand-Archive -Path {{ $asset.name }}
+
+    Move-Item -Force -Path age-plugin-yubikey-*/*/age-plugin-yubikey.exe -Destination $agePath
+    Remove-Item -Force -Recurse -Path {{ $asset.name }}, (Get-Item {{ $asset.name }}).Basename
+}
