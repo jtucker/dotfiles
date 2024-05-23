@@ -2,3 +2,5 @@
 memory=8GB 
 processors=2
 nestedVirtualization=true
+autoMemoryReclaim=gradual
+sparseVhd=true
