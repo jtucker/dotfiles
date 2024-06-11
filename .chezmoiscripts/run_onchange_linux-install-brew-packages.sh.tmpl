@@ -5,8 +5,5 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.linux.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.linux.casks -}}
-cask {{ . | quote }}
-{{ end -}}
 EOF
 {{ end -}}

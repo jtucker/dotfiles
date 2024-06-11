@@ -9,5 +9,4 @@ packages:
     - 'zoxide'
     casks:
     - 'git-credential-manager'
-    - '1password-cli'
     - 'slack'

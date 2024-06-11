@@ -1,0 +1,14 @@
+{{ if eq .chezmoi.os "windows" -}}
+# Setup my apps, I may have this run everytime `chezmoi apply` is run.
+
+$basePath = "$($env:USERPROFILE)\winget"
+Write-Host "Running winget configs from $basePath"
+gsudo {
+    Get-ChildItem -Path $basePath -Filter *.dsc.yml -Recurse |
+    ForEach-Object {
+        Write-Host "Running config: $_.FullName"
+        winget configure -f $_.FullName --disable-interactivity --accept-configuration-agreements --verbose
+    }
+}
+
+{{- end }}
