@@ -1,5 +1,6 @@
 {{- $email := "" -}}
 {{- $work := false -}}
+{{- $docker := false -}}
 
 {{- if (hasKey . "email") -}}
 {{-   $email = .email -}}
@@ -8,16 +9,27 @@
 {{- end -}}
 
 {{- if (hasKey . "work") -}}
-{{-   $email = .work -}}
+{{-   $work = .work -}}
 {{- else -}}
 {{-   $work = promptBool "Is this a work machine (Y/N)" -}}
 {{- end -}}
-
 
 {{- $machine := "desktop" }}
 {{- if eq .chezmoi.os "windows" }}
 {{-  $machine = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
 {{- end }}
+
+{{- $wsl := and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- $wsl_systemd := false -}}
+{{- $wsl_userprofile := "" -}}
+{{- if $wsl -}}
+{{- $wsl_systemd = promptBoolOnce . "systemd" "Using systemd" -}}
+{{-   if env "USERPROFILE" | empty | not -}}
+{{- $wsl_userprofile = env "USERPROFILE" -}}
+{{-   else if expandenv "/mnt/c/Users/$USER" | stat -}}
+{{- $wsl_userprofile = expandenv "/mnt/c/Users/$USER" -}}
+{{-   end -}}
+{{- end -}}
 
 encryption = "age"
 mode = "file"
