@@ -8,5 +8,5 @@
   url = "https://api.github.com/repos/str4d/age-plugin-yubikey/releases/latest"
 [".cache/github-releases/github-monospace.json"]
   type = "file"
-  refreshPeriod = "4374h" # 6 months
+  refreshPeriod = "168h"
   url = "https://api.github.com/repos/githubnext/monaspace/releases/latest"

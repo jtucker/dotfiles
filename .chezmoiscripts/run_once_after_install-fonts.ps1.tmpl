@@ -1,0 +1,11 @@
+{{- $release := joinPath .chezmoi.homeDir ".cache" "github-releases" "github-monospace.json" | include | fromJson -}}
+{{- $jqQuery := printf ".assets[] | select(.name | test(\"monaspace-.*$\"))" -}}
+{{- $asset := $release | jq $jqQuery | first -}}
+#    Version: {{ $release.tag_name }}
+#    Updated At: {{ $asset.updated_at }}
+
+Write-Host -ForegroundColor Green "Installing `monaspace` {{ $release.tag_name }} font from github"
+Invoke-WebRequest {{ $asset.browser_download_url | quote }} -OutFile {{ $asset.name }}
+Expand-Archive -Path {{ $asset.name }}
+
+Remove-Item -Force -Recurse -Path {{ $asset.name }}, (Get-Item {{ $asset.name }}).Basename
