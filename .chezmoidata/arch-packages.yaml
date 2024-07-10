@@ -6,8 +6,13 @@ packages:
       - fzf
       - kitty
       - jq
+      - docker
+      - docker-compose
       aur:
       - gitbutler-bin
       - git-credential-core-bin
       - visual-studio-code-bin
+      - rider
       - ttf-monaspice-huhanme-nerd-font-bin
+      - spotify
+      - spicetify-cli

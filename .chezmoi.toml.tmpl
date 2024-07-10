@@ -1,6 +1,7 @@
 {{- $email := "" -}}
 {{- $work := false -}}
 {{- $docker := false -}}
+{{- $osid := "" -}}
 
 {{- if (hasKey . "email") -}}
 {{-   $email = .email -}}
@@ -15,7 +16,13 @@
 {{- end -}}
 
 {{- $machine := "desktop" }}
+
+{{- if contains "arch" .chezmoi.kernel.osrelease -}}
+{{-  $osid = "arch" }}
+{{- end -}}
+
 {{- if eq .chezmoi.os "windows" }}
+{{-  $osid = .chezmoi.os -}}
 {{-  $machine = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
 {{- end }}
 
@@ -23,6 +30,7 @@
 {{- $wsl_systemd := false -}}
 {{- $wsl_userprofile := "" -}}
 {{- if $wsl -}}
+{{- $osid = "ubuntu" -}}
 {{- $wsl_systemd = promptBoolOnce . "systemd" "Using systemd" -}}
 {{-   if env "USERPROFILE" | empty | not -}}
 {{- $wsl_userprofile = env "USERPROFILE" -}}
@@ -59,8 +67,10 @@ progress = true
 [data]
 email = {{ $email | quote }}
 work = {{ $work }}
+wsl = {{ $wsl }}
 machine = {{ $machine | quote }}
 editor = "code"
+osid = {{ $osid | quote }}
 
 [edit]
    command = "code"

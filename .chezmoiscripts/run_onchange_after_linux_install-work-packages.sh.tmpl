@@ -1,8 +1,9 @@
-{{ if eq .work true -}}
+{{ if and (eq .work true) (eq .osid "arch") -}}
 #!/bin/bash
 
-{{ $installScript := joinPath .chezmoi.homeDir ".cache" "github" "microsoft-intune-archlinux" -}}
+yay -Sy microsoft-identity-broker-bin msalsdk-dbusclient microsoft-edge-stable-bin --noconfirm
+{{ $installScript := joinPath .chezmoi.homeDir ".cache" "github" "microsoft-intune-archlinux" "intune-portal" -}}
 cd {{ $installScript }}
-./l1-quickinstall.sh
+makepkg -si
 
 {{ end -}}
