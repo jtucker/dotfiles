@@ -9,6 +9,8 @@ packages:
       - docker
       - docker-compose
       aur:
+      - 1password-cli
+      - 1password
       - gitbutler-bin
       - git-credential-core-bin
       - visual-studio-code-bin
