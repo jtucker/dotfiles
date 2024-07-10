@@ -3,10 +3,14 @@ TODO.md
 
 {{ if ne .chezmoi.os "windows" }} # Ignore windows stuff on linux
 .chezmoiscripts/*.ps1
+common.ps1
 AppData
 Documents
+winget
 {{ else }} # ignore linux stuff on windows
 .chezmoiscripts/*.sh
 .config/warp_terminal/*
+.zshrc
+.bashrc
 {{ end }}
 

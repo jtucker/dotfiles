@@ -1,0 +1,8 @@
+work-packages:
+  linux:
+    arch:
+    - sdbus-cpp
+    - msalsdk-dbusclient
+    - microsoft-identity-broker
+    - jre11-openjdk
+    - microsoft-edge-stable-bin

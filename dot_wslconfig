@@ -1,6 +1,6 @@
 [wsl2]
-memory=8GB 
-processors=2
+memory=16GB 
+processors=4
 nestedVirtualization=true
 autoMemoryReclaim=gradual
 sparseVhd=true
