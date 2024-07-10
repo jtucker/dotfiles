@@ -1,4 +1,4 @@
-{{ if eq .work -}}
+{{ if eq .work true -}}
 #!/bin/bash
 
 {{ $installScript := joinPath .chezmoi.homeDir ".cache" "repos" "microsoft-intune-archlinux" -}}
