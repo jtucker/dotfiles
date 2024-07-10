@@ -1,4 +1,4 @@
-[".cache/github/git-credential-manager.json"]
+[".cache/github-releases/git-credential-manager.json"]
   type = "file"
   refreshPeriod = "168h" # 1-week
   url = "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest"
@@ -10,3 +10,9 @@
   type = "file"
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/githubnext/monaspace/releases/latest"
+
+{{ if eq .chezmoi.osRelease.id "arch" }}
+["yay"]
+  type = "git-repo"
+  url = "https://aur.archlinux.org/yay.git"
+{{ end }}

@@ -67,10 +67,22 @@ editor = "code"
    args = [
       "--wait"
    ]
-
+{{ if eq .chezmoi.os "windows" }}
 [merge]
     command = "pwsh"
     args = ["-Command", "cp {{ `{{ .Target }}` }} {{ `{{ .Target }}` }}.base && code --wait --new-window --merge {{ `{{ .Destination }}` }} {{ `{{ .Target  }}` }} {{ `{{ .Target }}` }}.base {{ `{{ .Source }}` }}"]
+{{ else }}
+[merge]
+   command = "code"
+   args = [
+      "--wait",
+      "--new-window",
+      "--merge",
+      "{{ `{{ .Destination }}` }}",
+      "{{ `{{ .Target }}` }}",
+      "{{ `{{ .Source }}` }}"
+   ]
+{{ end }}
 
 [diff]
    exclude = ["scripts"]
