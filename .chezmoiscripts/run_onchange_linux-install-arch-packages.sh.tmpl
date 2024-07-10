@@ -1,0 +1,7 @@
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
+#!/bin/bash
+
+sudo pacman -S --noconfirm {{ .packages.linux.arch.pacman | join " " }}
+yay -Sy {{ .packages.linux.arch.aur | join " " }}
+
+{{ end -}}

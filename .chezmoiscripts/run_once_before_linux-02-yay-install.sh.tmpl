@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/bash
+set -o pipefail
+set -o errexit
+
+echo "I use arch btw.. and also yay"
+
+cd ~/yay
+makepkg -si
+
+{{ end -}}
