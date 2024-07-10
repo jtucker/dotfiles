@@ -1,7 +1,7 @@
 {{ if eq .work true -}}
 #!/bin/bash
 
-{{ $installScript := joinPath .chezmoi.homeDir ".cache" "repos" "microsoft-intune-archlinux" -}}
+{{ $installScript := joinPath .chezmoi.homeDir ".cache" "github" "microsoft-intune-archlinux" -}}
 {{ $installScript }}/l1-quickinstall.sh
 
 {{ end -}}
