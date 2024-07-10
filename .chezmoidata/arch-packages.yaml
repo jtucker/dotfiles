@@ -1,12 +1,13 @@
 packages:
-  arch:
-    pacman:
-    - zoxide
-    - fzf
-    - kitty
-    - jq
-    aur:
-    - gitbutler-bin
-    - git-credential-core-bin
-    - visual-studio-code-bin
-    - ttf-monaspice-huhanme-nerd-font-bin
+  linux:
+    arch:
+      pacman:
+      - zoxide
+      - fzf
+      - kitty
+      - jq
+      aur:
+      - gitbutler-bin
+      - git-credential-core-bin
+      - visual-studio-code-bin
+      - ttf-monaspice-huhanme-nerd-font-bin

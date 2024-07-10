@@ -46,14 +46,6 @@ progress = true
    command = "powershell"
    args = ["-NoLogo"]
 
-{{- end }}
-
-[data]
-email = {{ $email | quote }}
-work = {{ $work }}
-machine = {{ $machine | quote }}
-editor = "code"
-
 [interpreters.ps1]
    command = "pwsh"
    args = ["-NoLogo"]
@@ -61,6 +53,14 @@ editor = "code"
 [cd]
    command = "pwsh"
    args = ["-NoLogo", "-NoExit", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi}"]
+
+{{- end }}
+
+[data]
+email = {{ $email | quote }}
+work = {{ $work }}
+machine = {{ $machine | quote }}
+editor = "code"
 
 [edit]
    command = "code"
