@@ -2,6 +2,6 @@
 #!/bin/bash
 
 {{ $installScript := joinPath .chezmoi.homeDir ".cache" "repos" "microsoft-intune-archlinux" -}}
-echo {{ $installScript }}/l1-quickinstall.sh
+{{ $installScript }}/l1-quickinstall.sh
 
 {{ end -}}
