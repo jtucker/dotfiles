@@ -1,0 +1,10 @@
+{{ if eq .osid "arch" -}}
+#!/bin/bash
+
+{{ $themeLocation := joinPath .chezmoi.homeDir ".cache" "github" "gnome-theme" }}
+cd {{ $themeLocation }}
+python install.py -a --launchpad 
+
+sudo python install.py --gdm --green
+sudo systemctl restart gdm
+{{ end -}}
