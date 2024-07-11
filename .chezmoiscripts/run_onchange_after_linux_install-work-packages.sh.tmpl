@@ -4,6 +4,6 @@
 yay -Sy microsoft-identity-broker-bin msalsdk-dbusclient microsoft-edge-stable-bin --noconfirm --needed
 {{ $installScript := joinPath .chezmoi.homeDir ".cache" "github" "microsoft-intune-archlinux" "intune-portal" -}}
 cd {{ $installScript }}
-makepkg -si
+makepkg -si --needed --noconfirm
 
 {{ end -}}
