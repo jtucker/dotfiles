@@ -7,7 +7,7 @@ packages:
       - kitty
       - jq
       - docker
-      - docker-compose
+      - docker-compose      
       aur:
       - 1password-cli
       - 1password
@@ -18,3 +18,4 @@ packages:
       - ttf-monaspice-huhanme-nerd-font-bin
       - spotify
       - spicetify-cli
+      - firefox-developer-edition
