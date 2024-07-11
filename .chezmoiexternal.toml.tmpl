@@ -11,7 +11,7 @@
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/githubnext/monaspace/releases/latest"
 
-{{ if eq .chezmoi.osRelease.id "arch" }}
+{{ if eq .osid "arch" }}
 ["yay"]
   type = "git-repo"
   url = "https://aur.archlinux.org/yay-bin.git"
