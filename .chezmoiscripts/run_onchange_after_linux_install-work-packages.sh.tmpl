@@ -1,7 +1,7 @@
 {{ if and (eq .work true) (eq .osid "arch") -}}
 #!/bin/bash
 
-yay -Sy microsoft-identity-broker-bin msalsdk-dbusclient microsoft-edge-stable-bin --noconfirm
+yay -Sy microsoft-identity-broker-bin msalsdk-dbusclient microsoft-edge-stable-bin --noconfirm --needed
 {{ $installScript := joinPath .chezmoi.homeDir ".cache" "github" "microsoft-intune-archlinux" "intune-portal" -}}
 cd {{ $installScript }}
 makepkg -si

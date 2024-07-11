@@ -2,6 +2,6 @@
 #!/bin/bash
  
 sudo pacman -S --noconfirm {{ .packages.linux.arch.pacman | join " " }}
-yay -Sy {{ .packages.linux.arch.aur | join " " }} --noconfirm
+yay -Sy {{ .packages.linux.arch.aur | join " " }} --noconfirm --needed
 
 {{ end -}}
