@@ -40,8 +40,8 @@ zinit cdreplay -q
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
-bindkey '[C' forward-word
-bindkey '[D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;5D' backward-word
 
 # history
 HISTSIZE=5000
