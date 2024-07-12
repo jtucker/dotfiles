@@ -7,7 +7,8 @@ packages:
       - kitty
       - jq
       - docker
-      - docker-compose      
+      - docker-compose
+      - git-delta
       aur:
       - 1password-cli
       - 1password
