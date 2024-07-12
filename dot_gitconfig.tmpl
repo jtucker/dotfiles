@@ -1,15 +1,55 @@
+
+{{ if eq .chezmoi.os "windows" -}}
 [core]
 	editor = \"C:\\Users\\jatucke\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
-[user]
-	name = Jason Tucker
-	email = {{ .email }}
+	
 [credential]
-{{ if eq .chezmoi.os "windows" -}}
 	helper = C:/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 {{ end -}}
+
 {{ if eq .chezmoi.os "linux" -}}
+[core]
+	editor = code
+
+[credential]
 	helper = 
 	helper = /usr/bin/git-credential-manager
 	guiPrompt = false
 	credentialStore = cache
+
+[aliases]
+	bare-clone = "!sh $HOME/scripts/git/git-bare-clone.sh"
+	
 {{ end -}}
+
+[user]
+
+	name = Jason Tucker
+	email = {{ .email }}
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[rebase]
+	autoSquash = true
+
+[worktree]
+	guessRemote = true
+
+[delta]
+	hyperlinks = true
+	line-numbers = true
+	navigate = true
+	side-by-side = true
+
+[fetch]
+	prune = true
+
+[interactive]
+	diffFilter = delta --color-only
