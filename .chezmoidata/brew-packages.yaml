@@ -1,12 +1,12 @@
 packages:
   linux:
     brews:
-    - 'asdf'
-    - 'gitbutler'
-    - 'jq'
-    - 'starship'
-    - 'fzf'
-    - 'zoxide'
-    casks:
-    - 'git-credential-manager'
-    - 'slack'
+    - git
+    - gh
+    - jq
+    - starship
+    - fzf
+    - thefuck
+    - tldr
+    - zoxide
+    - zsh

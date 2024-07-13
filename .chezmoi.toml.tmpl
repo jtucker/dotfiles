@@ -1,7 +1,7 @@
 {{- $email := "" -}}
 {{- $work := false -}}
 {{- $docker := false -}}
-{{- $osid := "" -}}
+{{- $osid := .chezmoi.os -}}
 
 {{- if (hasKey . "email") -}}
 {{-   $email = .email -}}
@@ -17,8 +17,12 @@
 
 {{- $machine := "desktop" }}
 
-{{- if contains "arch" .chezmoi.kernel.osrelease -}}
-{{-  $osid = "arch" }}
+{{- if (eq .chezmoi.os "linux") -}}
+{{-   if (hasKey .chezmoi.osRelease "idLike") -}}
+{{-      $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.idLike -}}
+{{-   else if (hasKey .chezmoi.osRelease "id") -}}
+{{-      $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{-   end -}}
 {{- end -}}
 
 {{- if eq .chezmoi.os "windows" }}
@@ -48,12 +52,6 @@ progress = true
   command = "powershell"
   args = ["-NoLogo", "-Command", "& {Set-Location $env:HOMEPATH/.local/share/chezmoi; ./.install-windows-prereqs.ps1}"]
 
-# Hack to run powershell scripts before 
-# powershell core is installed
-[interpreters.ps5]
-   command = "powershell"
-   args = ["-NoLogo"]
-
 [interpreters.ps1]
    command = "pwsh"
    args = ["-NoLogo"]
@@ -77,6 +75,7 @@ osid = {{ $osid | quote }}
    args = [
       "--wait"
    ]
+
 {{ if eq .chezmoi.os "windows" }}
 [merge]
     command = "pwsh"

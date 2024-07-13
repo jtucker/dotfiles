@@ -8,7 +8,6 @@ packages:
       - jq
       - docker
       - docker-compose
-      - git-delta
       aur:
       - 1password-cli
       - 1password

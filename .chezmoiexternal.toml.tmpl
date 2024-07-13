@@ -11,7 +11,7 @@
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/githubnext/monaspace/releases/latest"
 
-{{ if eq .osid "arch" }}
+{{ if eq .osid "linux-arch" }}
 ["yay"]
   type = "git-repo"
   url = "https://aur.archlinux.org/yay-bin.git"
@@ -19,9 +19,16 @@
 [".cache/github/microsoft-intune-archlinux"]
   type = "git-repo"
   url = "https://github.com/recolic/microsoft-intune-archlinux.git"
+{{ end }}
 
+{{ if eq .chezmoi.os "linux" }}
 [".cache/github/gnome-theme"]
   type = "git-repo"
   url = "https://github.com/imarkoff/Marble-shell-theme.git"
+
+[".cache/github-releases/git-delta.json"]
+  type = "file"
+  refreshPeriod = "168h"
+  url = "https://api.github.com/repos/dandavison/delta/releases/latest"
 
 {{ end }}

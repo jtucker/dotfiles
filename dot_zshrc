@@ -30,6 +30,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::dotnet
 zinit snippet OMZP::azure
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::asdf
 
 autoload -Uz compinit && compinit
 zinit cdreplay -q
