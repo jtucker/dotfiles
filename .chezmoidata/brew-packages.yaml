@@ -1,7 +1,6 @@
 packages:
   linux:
     brews:
-    - git
     - gh
     - jq
     - starship

@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "macos" -}}
+{{ if eq .osid "linux-ubuntu" -}}
 #!/bin/bash
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
@@ -7,3 +7,5 @@ brew {{ . | quote }}
 {{ end -}}
 EOF
 {{ end -}}
+
+
