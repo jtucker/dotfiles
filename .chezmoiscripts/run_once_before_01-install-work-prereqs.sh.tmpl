@@ -1,22 +1,32 @@
 {{ if and (eq .osid "linux-ubuntu") .work -}}
 #!/bin/bash
 
+echo "===* Updating the system *==="
 sudo apt update
-
 sudo apt-get dist-upgrade
 
-sudo apt install curl wget -y 
+echo "===* Installing pre-req utils *==="
+sudo apt install curl wget gpg -y 
 
-curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+echo "===* Adding MSFT packages *==="
+curl -sSl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 rm -f packages.microsoft.gpg
 
+echo "===* Adding MSFT repos *==="
 curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-ubuntu-jammy-prod.list
-
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/edge.list'
-
 sudo apt update
-sudo apt install microsoft-edge-stable intune-portal libjavascriptcoregtk-4.0-18- -y
+
+echo "===* Installing Intune *==="
+sudo sh -c 'echo "deb http://us.archive.ubuntu.com/ubuntu/ jammy main restricted" > /etc/apt/sources.list.d/intune_temp.jammymain.sources.list'
+sudo sh -c 'echo "deb http://us.archive.ubuntu.com/ubuntu/ jammy updates restricted" > /etc/apt/sources.list.d/intune_temp.jammyupdates.sources.list'
+sudo apt install openjdk-11-jre intune-portal -y
+sudo rm /etc/apt/sources.list.d/intune_temp.*
+sudo apt update
+
+echo "===* Installing Code/Edge *==="
+sudo apt install code microsoft-edge-stable -y
 
 {{ end -}}

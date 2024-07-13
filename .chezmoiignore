@@ -11,6 +11,8 @@ winget
 .chezmoiscripts/*.sh
 .config/warp_terminal/*
 .zshrc
+.zshenv
+.p10k.zsh
 .bashrc
 {{ end }}
 

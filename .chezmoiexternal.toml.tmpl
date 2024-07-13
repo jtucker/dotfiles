@@ -31,4 +31,12 @@
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/dandavison/delta/releases/latest"
 
+{{- $jbVersionTag := (gitHubLatestRelease "brewcoua/jb").TagName }}
+[".local/bin/jb"]
+  type = "archive-file"
+  url = "https://github.com/brewcoua/jb/releases/download/{{ $jbVersionTag }}/jb_x86_64-unknown-linux-gnu.tar.gz"
+  executable = true
+  path = "jb"
+  refreshPeriod = "168h"
+
 {{ end }}
