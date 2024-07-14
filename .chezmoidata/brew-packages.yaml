@@ -1,6 +1,7 @@
 packages:
   linux:
     brews:
+    - azure-cli
     - gh
     - jq
     - starship

@@ -1,0 +1,15 @@
+{{ if eq .osid "linux-ubuntu" -}}
+#! /bin/bash
+set -ev pipefail
+
+echo "Add the Docker GPG key if not already added"
+if ! [ -f /usr/share/keyrings/docker.gpg ]; then
+    curl -sS ttps://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor --output /usr/share/keyrings/docker.gpg
+fi
+
+echo "Add the Docker APT repository if not already added"
+if ! [ -f /etc/apt/sources.list.d/docker.list ]; then
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1docker.gpg] https://download.docker.com/linux/ubuntu {{ .chezmoi.osRelease.versionCodename }} main' | sudo tee /etc/apt/sources.list.d/1password.list
+fi
+
+{{ end -}}
