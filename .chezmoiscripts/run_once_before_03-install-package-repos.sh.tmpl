@@ -4,7 +4,7 @@ set -ev pipefail
 
 echo "Add the Docker GPG key if not already added"
 if ! [ -f /usr/share/keyrings/docker.gpg ]; then
-    curl -sS ttps://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor --output /usr/share/keyrings/docker.gpg
+    curl -sS https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor --output /usr/share/keyrings/docker.gpg
 fi
 
 echo "Add the Docker APT repository if not already added"
