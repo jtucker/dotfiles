@@ -9,7 +9,7 @@ usage() {
 }
 
 upstream=""
-while [[ "$1" =~ ^-- ]]; do
+while [ "$1" =~ ^-- ]; do
     case "$1" in
         --upstream=*)
             upstream="${1#*=}"
