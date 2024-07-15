@@ -71,9 +71,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias ll='ls -all --color'
 
+# brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# fzf 
+# fzf
 eval "$(fzf --zsh)"
 
 # zoxide
