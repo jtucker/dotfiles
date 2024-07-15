@@ -3,7 +3,7 @@
 set -eufo pipefail
 
 
-{{ if .eq .osid "linux-ubuntu" -}}
+{{ if eq .osid "linux-ubuntu" -}}
 sudo apt-get update
 sudo apt-get install -y {{ .packages.linux.apt | join " " }}
 {{ end -}}
