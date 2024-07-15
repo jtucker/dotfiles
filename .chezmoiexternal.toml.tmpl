@@ -22,9 +22,6 @@
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-[".cache/github/gnome-theme"]
-  type = "git-repo"
-  url = "https://github.com/imarkoff/Marble-shell-theme.git"
 
 {{- $gitDeltaVersionTag := (gitHubLatestRelease "dandavison/delta").TagName }}
 [".cache/github/debs/git-delta.deb"]
