@@ -2,8 +2,6 @@ packages:
   linux:
     brews:
     - azure-cli
-    - docker
-    - docker-compose
     - gh
     - jq
     - starship
