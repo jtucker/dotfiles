@@ -26,10 +26,11 @@
   type = "git-repo"
   url = "https://github.com/imarkoff/Marble-shell-theme.git"
 
-[".cache/github/git-delta.json"]
+{{- $gitDeltaVersionTag := (gitHubLatestRelease "dandavison/delta").TagName }}
+[".cache/github/debs/git-delta.deb"]
   type = "file"
   refreshPeriod = "168h"
-  url = "https://api.github.com/repos/dandavison/delta/releases/latest"
+  url = "https://github.com/dandavison/delta/releases/download/{{ $gitDeltaVersionTag }}/git-delta_{{ $gitDeltaVersionTag }}_amd64.deb"
 
 {{- $jbVersionTag := (gitHubLatestRelease "brewcoua/jb").TagName }}
 [".local/bin/jb"]

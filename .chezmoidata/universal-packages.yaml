@@ -1,0 +1,10 @@
+packages:
+  common:
+  - kitty
+  - 1password
+  - 1password-cli
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin

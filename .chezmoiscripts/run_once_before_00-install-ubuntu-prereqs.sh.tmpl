@@ -4,7 +4,7 @@ set -o pipefail
 set -o errexit
 
 echo "Installing pre-reqs for Ubuntu"
-sudo apt install git wget zsh -y 
+sudo apt install git wget zsh curl -y 
 
 echo "Changing the shell"
 chsh -s /bin/zsh $(whoami)
