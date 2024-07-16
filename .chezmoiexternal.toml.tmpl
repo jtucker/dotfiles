@@ -2,14 +2,22 @@
   type = "file"
   refreshPeriod = "168h" # 1-week
   url = "https://api.github.com/repos/git-ecosystem/git-credential-manager/releases/latest"
+
 [".cache/github/age-yubikey-plugin.json"]
   type = "file"
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/str4d/age-plugin-yubikey/releases/latest"
+
 [".cache/github/github-monospace.json"]
   type = "file"
   refreshPeriod = "168h"
   url = "https://api.github.com/repos/githubnext/monaspace/releases/latest"
+
+{{- $gitMonaspiceVersionTag := (gitHubLatestRelease "ryanoasis/nerd-fonts").TagName }}
+[".fonts/monaspice"]
+  type = "archive"
+  refreshPeriod = "168h"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $gitMonaspiceVersionTag }}/Monaspace.tar.xz"
 
 {{ if eq .osid "linux-arch" }}
 ["yay"]
@@ -42,4 +50,12 @@
   path = "jb"
   refreshPeriod = "168h"
 
+[".local/bin/eza"]
+  type = "archive-file"
+  url = "https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz"
+  executable = true
+  path = "eza"
+  stripComponents = 1
+  refreshPeriod = "168h"
+  
 {{ end }}
