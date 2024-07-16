@@ -68,8 +68,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # aliases
-alias ls='ls --color'
-alias ll='ls -all --color'
+source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 
 # brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
