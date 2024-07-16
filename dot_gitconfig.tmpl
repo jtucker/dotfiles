@@ -10,9 +10,14 @@
 [core]
 	editor = code
 
+{{ $gitCredentialManagerPath := "/usr/local/bin/" }}
+{{ if ne .osid "linux-ubuntu" -}}
+{{   $gitCredentialManagerPath = "/usr/bin/" }}
+{{ end -}}
+
 [credential]
 	helper = 
-	helper = /usr/bin/git-credential-manager
+	helper = {{ joinPath $gitCredentialManagerPath "git-credential-manager" }}
 #	guiPrompt = false
 	credentialStore = cache
 
