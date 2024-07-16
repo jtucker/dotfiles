@@ -22,6 +22,11 @@
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
+{{- $gitMarbleThemeVersionTag := (gitHubLatestRelease "imarkoff/Marble-shell-theme").TagName }}
+[".themes/marble"]
+  type = "archive"
+  refreshPeriod = "168h"
+  url = "https://github.com/imarkoff/Marble-shell-theme/releases/download/{{ $gitMarbleThemeVersionTag }}/Marble-shell-filled.tar.xz"
 
 {{- $gitDeltaVersionTag := (gitHubLatestRelease "dandavison/delta").TagName }}
 [".cache/github/debs/git-delta.deb"]

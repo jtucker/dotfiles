@@ -29,4 +29,11 @@ sudo apt update
 echo "===* Installing Code/Edge *==="
 sudo apt install code microsoft-edge-stable -y
 
+echo "===* Adding Synaptics APT Repo *==="
+packageDir=$(mktemp -d)
+filePath=$packageDir/synaptics-keyring.deb
+wget https://www.synaptics.com/sites/default/files/Ubuntu/pool/stable/main/all/synaptics-repository-keyring.deb -O $filePath
+sudo dpkg -i $filePath
+rm -rf $packageDir
+
 {{ end -}}
