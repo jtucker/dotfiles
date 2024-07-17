@@ -1,0 +1,12 @@
+{{ if and (eq .chezmoi.os "linux") (lookPath "gnome-shell" | not | not) -}}
+{{ $fluentThemePath := joinPath .chezmoi.homeDir ".cache" "github" "fluenttheme" -}}
+#!/bin/bash
+
+echo "🖥️ Installing the Marble Dark Theme"
+dconf write /org/gnome/shell/extensions/user-theme/name "'Marble-green-dark'"
+
+echo "🖥️ Installing the Fluent Icon Theme"
+{{ $fluentThemePath }}/install.sh
+dconf write /org/gnome/desktop/interface/icon-theme "'Fluent-dark'"
+
+{{ end -}}

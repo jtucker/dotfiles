@@ -30,6 +30,10 @@
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
+[".cache/github/fluenttheme"]
+  type = "git-repo"
+  url = "https://github.com/vinceliuice/Fluent-icon-theme.git"
+
 {{- $gitMarbleThemeVersionTag := (gitHubLatestRelease "imarkoff/Marble-shell-theme").TagName }}
 [".themes"]
   type = "archive"
