@@ -54,11 +54,12 @@
   path = "jb"
   refreshPeriod = "168h"
 
-{{- $devtoyVersionTag := (gitHubLatestRelease "DevToys-app/DevToys").TagName }}
+{{- $devToysReleases := gitHubReleases "DevToys-app/DevToys" }}
+{{- $latestRelease := index $devToysReleases 0 }}
 [".cache/github/debs/devtoys.deb"]
   type = "file"
   refreshPeriod = "168h"
-  url = "https://github.com/DevToys-app/DevToys/releases/download/{{ $devtoyVersionTag }}/devtoys_linux_x64.deb"
+  url = "https://github.com/DevToys-app/DevToys/releases/download/{{ $latestRelease.TagName }}/devtoys_linux_x64.deb"
 
 [".local/bin/eza"]
   type = "archive-file"
