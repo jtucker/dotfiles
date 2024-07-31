@@ -1,4 +1,4 @@
-{{- $release := joinPath .chezmoi.homeDir ".cache" "github-releases" "age-yubikey-plugin.json" | include | fromJson -}}
+{{- $release := joinPath .chezmoi.homeDir ".cache" "github" "age-yubikey-plugin.json" | include | fromJson -}}
 {{- $jqQuery := printf ".assets[] | select(.name | test(\"age-plugin-yubikey-.*-%s.*$\"))" .chezmoi.os -}}
 {{- $asset := $release | jq $jqQuery | first -}}
 #    Version: {{ $release.tag_name }}

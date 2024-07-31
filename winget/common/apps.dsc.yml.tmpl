@@ -11,6 +11,7 @@ properties:
         id: Microsoft.PowerShell
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: VSCode
       directives:
         allowPrerelease: true
       settings:
@@ -47,6 +48,12 @@ properties:
         allowPrerelease: true
       settings:
         id: GitHub.cli
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        allowPrerelease: true
+      settings:
+        id: dandavison.delta
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
@@ -157,39 +164,39 @@ properties:
         id: SomePythonThings.WingetUIStore
         source: winget
 
-    # browser
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: Waterfox.Waterfox
-        source: winget
-
-    # chat
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: SlackTechnologies.Slack
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      id: winget_WhatsApp_Beta
-      settings:
-        id: 9NBDXK71NK08
-        source: msstore
-
-    # media
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: "Spicetify.Spicetify"
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: "Spotify.Spotify"
-        source: winget
+# browser
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        allowPrerelease: true
+#      settings:
+#        id: Waterfox.Waterfox
+#        source: winget
+#
+#    # chat
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        allowPrerelease: true
+#      settings:
+#        id: SlackTechnologies.Slack
+#        source: winget
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        allowPrerelease: true
+#      id: winget_WhatsApp_Beta
+#      settings:
+#        id: 9NBDXK71NK08
+#        source: msstore
+#
+#    # media
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        allowPrerelease: true
+#      settings:
+#        id: "Spicetify.Spicetify"
+#        source: winget
+#    - resource: Microsoft.WinGet.DSC/WinGetPackage
+#      directives:
+#        allowPrerelease: true
+#      settings:
+#        id: "Spotify.Spotify"
+#        source: winget

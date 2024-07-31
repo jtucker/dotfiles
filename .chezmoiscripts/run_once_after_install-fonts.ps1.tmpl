@@ -1,11 +1,33 @@
-{{- $release := joinPath .chezmoi.homeDir ".cache" "github-releases" "github-monospace.json" | include | fromJson -}}
-{{- $jqQuery := printf ".assets[] | select(.name | test(\"monaspace-.*$\"))" -}}
-{{- $asset := $release | jq $jqQuery | first -}}
-#    Version: {{ $release.tag_name }}
-#    Updated At: {{ $asset.updated_at }}
+{{- $release := gitHubLatestRelease "ryanoasis/nerd-fonts" -}}
+{{- $fontPath := joinPath .chezmoi.homeDir ".fonts" "monaspice" }}
+#    Version: {{ $release.TagName }}
+#    Published At: {{ $release.PublishedAt }}
 
-Write-Host -ForegroundColor Green "Installing `monaspace` {{ $release.tag_name }} font from github"
-Invoke-WebRequest {{ $asset.browser_download_url | quote }} -OutFile {{ $asset.name }}
-Expand-Archive -Path {{ $asset.name }}
+Write-Host -ForegroundColor Green "Installing `monaspice` {{ $release.TagName }} font from github"
 
-Remove-Item -Force -Recurse -Path {{ $asset.name }}, (Get-Item {{ $asset.name }}).Basename
+function Install-Font {
+    param(
+        [Parameter(Mandatory)]
+        [string]$FileName
+    )
+
+    $signature = @'
+[DllImport("fontext.dll", CharSet = CharSet.Auto)]
+public static extern void InstallFontFile(IntPtr hwnd, string filePath, int flags);
+'@
+   
+    $fontextdll = Add-Type -MemberDefinition $signature -Name Invoke -Namespace InstallFontFile -PassThru
+    $fontextdll::InstallFontFile( (Get-Process -Id $pid).MainWindowHandle, $FileName, 0 )
+}
+
+$fontsToInstall = Get-ChildItem -Path (Join-Path $HOME ".fonts/monaspice") -Filter *.otf
+if($null -ne $fontsToInstall)
+{
+    $fontsToInstall `
+    | Select-Object { $_.FullName } -ExpandProperty FullName `
+    | ForEach-Object { 
+        $fontName = ($_.Split("\") | Select-Object -Last 1)
+        Write-Host "Installing font: $fontName"
+        Install-Font -FileName $_
+    }
+}
