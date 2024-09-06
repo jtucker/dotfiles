@@ -15,11 +15,21 @@ public static extern void InstallFontFile(IntPtr hwnd, string filePath, int flag
     $fontextdll::InstallFontFile( (Get-Process -Id $pid).MainWindowHandle, $FileName, 0 )
 }
 
-$fontsToInstall = Get-ChildItem -Path (Join-Path $HOME ".fonts") -Recurse -Filter *.otf
-if($null -ne $fontsToInstall)
+# Get Fonts in the .fonts folder
+$fontsFoundInFolder = Get-ChildItem -Path (Join-Path $HOME ".fonts") -Recurse | Where-Object Extension -in @('.otf', '.ttf')
+
+# Get fonts installed via registry
+$fontsRegistryKey = 'HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts'
+$fontsInRegistry = Get-Item -Path $fontsRegistryKey -ErrorAction Stop
+$fontPathsFromRegistry = $fontsInRegistry.Property | ForEach-Object { $fontsInRegistry.GetValue($_) }
+
+# Get any deltas
+$newFontsToInstall = $fontsFoundInFolder | Where-Object { $fontPathsFromRegistry -notcontains $_ }
+if($null -ne $newFontsToInstall)
 {
-    $fontsToInstall `
-    | Select-Object { $_.FullName } -ExpandProperty FullName `
+    Write-Host "Found $($newFontsToInstall.Count) to install" 
+    $newFontsToInstall `
+    | Select-Object -ExpandProperty FullName
     | ForEach-Object { 
         $fontName = ($_.Split("\") | Select-Object -Last 1)
         Write-Host "Installing font: $fontName"

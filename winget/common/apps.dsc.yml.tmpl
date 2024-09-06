@@ -19,6 +19,7 @@ properties:
         source: winget
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: dotnet 8
       directives:
         allowPrerelease: true
       settings:
@@ -26,72 +27,84 @@ properties:
         source: winget
 
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: bicep
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.Bicep
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: az cli
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.AzureCLI
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: pwsh
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.PowerShell
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: github cli
       directives:
         allowPrerelease: true
       settings:
         id: GitHub.cli
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: delta
       directives:
         allowPrerelease: true
       settings:
         id: dandavison.delta
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: dapr
       directives:
         allowPrerelease: true
       settings:
         id: Dapr.CLI
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: azure developer
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.Azd
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: jetbrains toolbox
       directives:
         allowPrerelease: true
       settings:
         id: JetBrains.Toolbox
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: terminal
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.WindowsTerminal
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: devhome
       directives:
         allowPrerelease: true
       settings:
         id: Microsoft.DevHome
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: fork
       directives:
         allowPrerelease: true
       settings:
         id: Fork.Fork
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: docker
       directives:
         allowPrerelease: true
       settings:
@@ -100,24 +113,14 @@ properties:
 
     # security
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: AgileBits.1Password
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        allowPrerelease: true
-      settings:
-        id: AgileBits.1Password.Cli
-        source: winget
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: bitvise
       directives:
         allowPrerelease: true
       settings:
         id: Bitvise.SSH.Client
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: pia
       directives:
         allowPrerelease: true
       settings:
@@ -126,38 +129,58 @@ properties:
 
     # cli tools
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: starship
       directives:
         allowPrerelease: true
       settings:
         id: Starship.Starship
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: zoxide
       directives:
         allowPrerelease: true
       settings:
         id: ajeetdsouza.zoxide
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: glow
       directives:
         allowPrerelease: true
       settings:
         id: charmbracelet.glow
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: fzf
       directives:
         allowPrerelease: true
       settings:
         id: junegunn.fzf
         source: winget
-
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: eza
+      directives:
+        allowPrerelease: true
+      settings:
+        id: eza-community.eza
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: yazi
+      directives:
+        allowPrerelease: true
+      settings:
+        id: sxyazi.yazi
+        source: winget        
+        
     # utils
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: 7zip
       directives:
         allowPrerelease: true
       settings:
         id: 7zip.7zip
         source: winget
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: uniget
       directives:
         allowPrerelease: true
       settings:
