@@ -1,9 +1,4 @@
-{{- $release := gitHubLatestRelease "ryanoasis/nerd-fonts" -}}
-{{- $fontPath := joinPath .chezmoi.homeDir ".fonts" "monaspice" }}
-#    Version: {{ $release.TagName }}
-#    Published At: {{ $release.PublishedAt }}
-
-Write-Host -ForegroundColor Green "Installing `monaspice` {{ $release.TagName }} font from github"
+Write-Host -ForegroundColor Green "Installing fonts from the `.fonts` folder"
 
 function Install-Font {
     param(
@@ -20,7 +15,7 @@ public static extern void InstallFontFile(IntPtr hwnd, string filePath, int flag
     $fontextdll::InstallFontFile( (Get-Process -Id $pid).MainWindowHandle, $FileName, 0 )
 }
 
-$fontsToInstall = Get-ChildItem -Path (Join-Path $HOME ".fonts/monaspice") -Filter *.otf
+$fontsToInstall = Get-ChildItem -Path (Join-Path $HOME ".fonts") -Recurse -Filter *.otf
 if($null -ne $fontsToInstall)
 {
     $fontsToInstall `

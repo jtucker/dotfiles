@@ -19,6 +19,11 @@
   refreshPeriod = "168h"
   url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $gitMonaspiceVersionTag }}/Monaspace.tar.xz"
 
+[".fonts/victormono"]
+  type = "archive"
+  refreshPeriod = "168h"
+  url = "https://github.com/ryanoasis/nerd-fonts/releases/download/{{ $gitMonaspiceVersionTag }}/VictorMono.tar.xz"
+
 {{ if eq .osid "linux-arch" }}
 ["yay"]
   type = "git-repo"
