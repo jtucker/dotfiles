@@ -12,12 +12,12 @@ Set-PSReadLineOption -PredictionSource History
 
 # Set eza aliases
 function Invoke-Eza {
-    eza --long --header --all --icons --git --group-directories-first --git-repos
+    eza --long --header --icons --git --group-directories-first --git-repos
 }
 
 
 Remove-Alias -Name ls
 Set-Alias -Name ls -Value Invoke-Eza
 Set-Alias -Name ll -Value Invoke-Eza
-Set-Alias -Name la -Value Invoke-Eza
+Set-Alias -Name la -Value "eza --long --header --icons --git --group-directories-first --git-repos"
 
